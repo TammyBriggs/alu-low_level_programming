@@ -1,8 +1,10 @@
 #include <stdio.h>
 /**
- * Lowercase alphabet Inverse
+ * main - Entry point
  *
+ * Description: Prints the lowercase alphabet in reverse
  *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {

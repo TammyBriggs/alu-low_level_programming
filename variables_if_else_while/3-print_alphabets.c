@@ -1,8 +1,10 @@
 #include <stdio.h>
 /**
- * Betty Style
+ * main - Entry point
  *
+ * Description: Prints the alphabet in lowercase, and then in uppercase
  *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
