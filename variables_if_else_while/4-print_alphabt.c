@@ -4,7 +4,7 @@
  *
  *
  */
-int main()
+int main(void)
 {
 	char alphabet;
 
