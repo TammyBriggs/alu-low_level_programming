@@ -6,18 +6,18 @@
  */
 int main()
 {
-    char alphabet;
-    char highCase;
+	char alphabet;
+	char highCase;
 
-    for (alphabet = 'a'; alphabet <= 'z'; alphabet++)
-    {
-        putchar(alphabet);
-    }
-    for (highCase = 'A'; highCase <= 'Z'; highCase++)
-    {
-        putchar(highCase);
-    }
+	for (alphabet = 'a'; alphabet <= 'z'; alphabet++)
+	{
+		putchar(alphabet);
+	}
+	for (highCase = 'A'; highCase <= 'Z'; highCase++)
+	{
+		putchar(highCase);
+	}
 
-    putchar('\n');
-    return (0);
+	putchar('\n');
+	return (0);
 }
