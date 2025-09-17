@@ -1,20 +1,20 @@
 #include "main.h"
 /**
-* main-print putchar followed by a new line
+* main- program entry point
 *
-* Return: 0 on success execution.
+* Return: Successful execution always retruns 0
 */
+
 int main(void)
 {
-	char s[] = "_putchar";
-	int icount = 0;
-
-	while (s[icount] != '\0')
-	{
-		_putchar(s[icount]);
-		icount++;
-	}
-	_putchar(10);
-
+	_putchar('_');
+	_putchar('p');
+	_putchar('u');
+	_putchar('t');
+	_putchar('c');
+	_putchar('h');
+	_putchar('a');
+	_putchar('r');
+	_putchar('\n');
 	return (0);
 }
