@@ -4,7 +4,7 @@
 *
 * Return: 0 on success execution.
 */
-int main.h(void)
+int main(void)
 {
 	char s[] = "_putchar";
 	int icount = 0;
