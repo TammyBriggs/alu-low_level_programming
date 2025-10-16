@@ -29,18 +29,34 @@ int count_words(char *s)
 }
 
 /**
- * extract_words - Helper function to extract words from a string.
- * @matrix: The array of strings to populate.
- * @str: The string to extract words from.
+ * strtow - Splits a string into words.
+ * @str: The string to split.
+ *
+ * Return: A pointer to an array of strings (words), or NULL if it fails.
  */
-static void extract_words(char **matrix, char *str)
+char **strtow(char *str)
 {
-	int i, j, k = 0, len = 0, c = 0, start, end;
-	char *tmp;
+	char **matrix, *tmp;
+	int i, j, k = 0, len = 0, words, c = 0, start, end;
 
-	while (str[len])
+	/* Calculate the length of the input string */
+	while (str && str[len])
 		len++;
 
+	/* Return NULL if string is NULL or empty */
+	if (str == NULL || len == 0)
+		return (NULL);
+
+	words = count_words(str);
+	if (words == 0)
+		return (NULL);
+
+	/* Allocate memory for the array of pointers to strings */
+	matrix = (char **) malloc(sizeof(char *) * (words + 1));
+	if (matrix == NULL)
+		return (NULL);
+
+	/* Iterate through the string to extract each word */
 	for (i = 0; i <= len; i++)
 	{
 		if (str[i] == ' ' || str[i] == '\0')
@@ -51,10 +67,11 @@ static void extract_words(char **matrix, char *str)
 				tmp = (char *) malloc(sizeof(char) * (c + 1));
 				if (tmp == NULL)
 				{
+					/* Free previously allocated memory on failure */
 					for (j = 0; j < k; j++)
 						free(matrix[j]);
 					free(matrix);
-					return;
+					return (NULL);
 				}
 				start = i - c;
 				while (start < end)
@@ -68,35 +85,7 @@ static void extract_words(char **matrix, char *str)
 		else if (c++ == 0)
 			start = i;
 	}
-	matrix[k] = NULL;
-}
 
-
-/**
- * strtow - Splits a string into words.
- * @str: The string to split.
- *
- * Return: A pointer to an array of strings (words), or NULL if it fails.
- */
-char **strtow(char *str)
-{
-	char **matrix;
-	int len = 0, words;
-
-	/* Calculate the length of the input string */
-	if (str == NULL || str[0] == '\0')
-		return (NULL);
-
-	words = count_words(str);
-	if (words == 0)
-		return (NULL);
-
-	/* Allocate memory for the array of pointers to strings */
-	matrix = (char **) malloc(sizeof(char *) * (words + 1));
-	if (matrix == NULL)
-		return (NULL);
-
-	extract_words(matrix, str);
-
+	matrix[k] = NULL; /* Set the last element of the array to NULL */
 	return (matrix);
 }
