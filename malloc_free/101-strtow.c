@@ -37,7 +37,7 @@ int count_words(char *s)
 char **strtow(char *str)
 {
 	char **matrix, *tmp;
-	int i, k = 0, len = 0, words, c = 0, start, end;
+	int i, j, k = 0, len = 0, words, c = 0, start, end;
 
 	/* Calculate the length of the input string */
 	while (str && str[len])
@@ -68,8 +68,8 @@ char **strtow(char *str)
 				if (tmp == NULL)
 				{
 					/* Free previously allocated memory on failure */
-					for (k = 0; k < k; k++)
-						free(matrix[k]);
+					for (j = 0; j < k; j++)
+						free(matrix[j]);
 					free(matrix);
 					return (NULL);
 				}
